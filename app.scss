@@ -1,0 +1,150 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    
+    & .text-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        & h1 {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        & .text-btn {
+            padding: 20px;
+            font-weight: bold;
+            border-radius: 10px;
+        }
+    }
+
+}
+.list-syllabary-ja{
+
+    display: flex; 
+    flex-flow: row wrap;
+    writing-mode: tb-rl;
+    writing-mode: vertical-rl;
+    margin: 5px;
+    padding: 0;
+    width: 100%;
+    height: 80%;
+    list-style: none;
+    line-height: 1;
+    font-size: 3.52rem;
+    li{
+        margin: 10px 15px 10px 10px;
+        padding: 0;
+        width: 60px;
+        transition: transform 0.25s ;
+        &.next-kana-empty{
+        margin-bottom: 10px;
+        }
+        &:last-child{
+        margin-left: 0;
+        }
+
+        &.big {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            transform: scale(6.0);
+        }
+    }
+    a{
+        display: block;
+        padding:10px ;
+        border: 1px solid #b5b5b5;
+        border-radius: 3px;
+        background: linear-gradient(to bottom, #fff 60%, #efefef 100%);
+        color: #333;
+        text-decoration: none;
+        &:hover{
+        border-color: #C72020;
+        background: linear-gradient(to bottom, lighten(#C72020, 10) 60%, #C72020 100%);
+        color: #fff;
+        }
+    }
+}
+.text-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.9;
+    background-color: gray;
+    display: none;
+    transition: all 0.25s;
+    animation: modal 0.25s alternate;
+
+    @keyframes modal {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    & .text-wrapper {
+        display: flex;
+        pointer-events: none;
+    }
+    & h1 {
+        font-size: 2rem;
+        margin: 30px 20px 30px 0;
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 10px;
+    }
+    & .closeBtn {
+        font-size: 2.5rem;
+        border-radius: 50%;
+        background-color: #fff;
+        padding: 5px 10px ;
+    }
+    & .textarea-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        pointer-events: none;
+        & textarea {
+            width: 700px;
+            height: 410px;
+            font-size: 4rem;
+        }
+        & #removeBtn {
+            width: 100px;
+            height: 50px;
+            font-size: 2rem;
+            padding: 5px;
+            margin-top: 20px;
+            box-shadow: 1px 1px 3px black;
+            pointer-events: all;
+        }
+    }
+}
+body{
+    font-family: 'Hiragino Kaku Gothic Pro', Meiryo, 'MS PGothic', sans-serif;
+    overflow-x: hidden;
+}
+
+
